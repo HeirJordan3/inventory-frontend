@@ -1,5 +1,7 @@
 # 🧾 Inventory Management Frontend
 
+![Inventory Form Preview](public/form-preview.png)
+
 This is the **React frontend** for the Inventory Management System.  
 It allows users to submit inventory items through a form and sends the data to the Spring Boot backend.
 
@@ -42,7 +44,7 @@ http://localhost:3000
 
 ---
 
-## 🌐 Connects To
+## 🌐 Backend Connection
 
 Make sure the backend is running at:
 
@@ -50,21 +52,7 @@ Make sure the backend is running at:
 http://localhost:8080
 ```
 
-You can customize this using an `.env` file.
-
----
-
-## 🧾 Features
-
-* Form to input:
-
-  * Name
-  * Quantity
-  * Location
-  * Locker Combination
-* Sends a POST request to the backend
-* Logs response to the browser console
-* Resets the form after submission
+You can customize the API base URL using an environment variable.
 
 ---
 
@@ -76,29 +64,59 @@ src/
 │   └── InventoryForm.jsx
 ├── App.js
 └── index.js
+public/
+└── form-preview.png
 ```
 
 ---
 
-## 🌱 .env Setup (optional)
+## 🧾 Features
 
-Create a file named `.env` in the root of your frontend folder:
+* Input form with fields:
+
+  * Name
+  * Quantity
+  * Location
+  * Locker Combination
+* Sends data to backend via `axios.post`
+* Logs the response in the browser console
+* Clears the form after successful submission
+
+---
+
+## 🌱 Optional: Use `.env` for API base URL
+
+Create a file named `.env` in the root of your project:
 
 ```
 REACT_APP_API_URL=http://localhost:8080/api/v1/inventory
 ```
 
-In your component, use:
+Then in your code:
 
 ```js
-axios.post(`${process.env.REACT_APP_API_URL}`, data)
+axios.post(`${process.env.REACT_APP_API_URL}`, data);
 ```
 
 ---
 
 ## ✅ To Do
 
-* Add a list view for submitted items
-* Show success/error messages on the page
-* Add category & description support
+* Add success/error messages in the UI
+* Add a table or list of submitted items
+* Add "category" and "description" fields to the form
+* Style the form using Tailwind or Bootstrap
+* Add validation and loading states
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!
+
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to your fork: `git push origin feature/your-feature`
+5. Open a pull request
 
